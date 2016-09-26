@@ -1,0 +1,19 @@
+function lsd = LSD(G,W,R,E,I)
+s = length(G);
+G1=sort(G);
+num_G=count(G1,s,0)/s;
+W1=sort(W);
+num_W=count(W1,s,0)/s;
+R1=sort(R);
+num_R=count(R1,s,0)/s;
+E1=sort(E);
+num_E=count(E1,s,0)/s;
+I1=sort(I);
+num_I=count(I1,s,0)/s;
+lsd = zeros(1,4);
+for i = 1:200
+    lsd(1) = lsd(1) + (num_W(i) - num_G(i))^2;
+    lsd(2) = lsd(2) + (num_R(i) - num_G(i))^2;
+    lsd(3) = lsd(3) + (num_E(i) - num_G(i))^2;
+    lsd(4) = lsd(4) + (num_I(i) - num_G(i))^2;
+end
